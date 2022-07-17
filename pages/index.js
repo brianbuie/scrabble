@@ -9,8 +9,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <img className="Logo" src="/Logo.svg" />
+      <main className="flex flex-col justify-center items-center p-9 h-screen bg-gradient-to-b from-purple to-navy">
+        <img className="h-32" src="/Logo.svg" />
       </main>
     </>
   );
