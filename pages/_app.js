@@ -1,7 +1,12 @@
-import '../styles/globals.css'
+import { SessionProvider } from "next-auth/react";
+import Theme from "../ui/Theme";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function App({ Component, pageProps }) {
+  return (
+    <SessionProvider session={pageProps.session} refetchInterval={0}>
+      <Theme>
+        <Component {...pageProps} />
+      </Theme>
+    </SessionProvider>
+  );
 }
-
-export default MyApp
