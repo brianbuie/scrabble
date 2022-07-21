@@ -8,9 +8,13 @@ const StyledButton = styled.button`
   text-decoration: none;
   cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
   color: white;
-  background-color: ${({ color }) => color || "transparent"};
+  background-color: ${({ color, theme }) => {
+    if (!color) return "transparent";
+    return theme.colors[color] || color;
+  }};
+  box-shadow: ${({ shadow, theme }) => (shadow ? "inset 0 -0.2em 0 " + theme.colors.shadow : "none")};
   font-size: ${({ size }) => size || "1em"};
-  padding: 0.75em 1.5em;
+  padding: ${({ padding }) => padding || "0.75em 1.5em"};
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -20,15 +24,8 @@ const StyledButton = styled.button`
     outline: none;
     box-shadow: none;
   }
-  path {
-    fill: white;
-  }
   .icon {
-    height: 1em;
-    svg {
-      width: 1em;
-      height: 1em;
-    }
+    font-size: 1.5em;
   }
   span:nth-child(2) {
     margin-left: 0.5em;
