@@ -6,11 +6,6 @@ const Logo = styled.img`
   height: 4rem;
 `;
 
-const NavSpot = styled.div`
-  width: 3rem;
-  height: 3rem;
-`;
-
 const ProfileImg = styled.img`
   width: 100%;
   border-radius: 9999px;
@@ -18,7 +13,7 @@ const ProfileImg = styled.img`
 
 const ProfilePic = () => {
   const { data } = useSession();
-  if (!data || !data.user) return <NavSpot />;
+  if (!data?.user) return <Box square="3rem" />;
 
   const onClick = (e) => {
     e.preventDefault();
@@ -26,18 +21,18 @@ const ProfilePic = () => {
   };
 
   return (
-    <NavSpot>
+    <Box square="3rem">
       <a href="" onClick={onClick}>
         <ProfileImg src={data.user.image} title="Log Out" />
       </a>
-    </NavSpot>
+    </Box>
   );
 };
 
 const Layout = ({ children }) => (
   <Box direction="column" height="100vh">
     <Box as="nav" padding="1rem" width="100%">
-      <NavSpot />
+      <Box square="3rem" />
       <Box direction="column" grow="1">
         <Logo src="/Logo.svg" />
       </Box>

@@ -5,8 +5,8 @@ const Box = styled.div`
   flex-direction: ${({ direction }) => direction || "row"};
   justify-content: ${({ justify }) => justify || "center"};
   align-items: ${({ align }) => align || "center"};
-  height: ${({ height }) => height || "auto"};
-  width: ${({ width }) => width || "auto"};
+  height: ${({ height, square }) => height || square || "auto"};
+  width: ${({ width, square }) => width || square || "auto"};
   padding: ${({ padding }) => padding || 0};
   flex-grow: ${({ grow }) => grow || 0};
 `;
