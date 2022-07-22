@@ -14,7 +14,7 @@ const StyledButton = styled.button`
   }};
   box-shadow: ${({ shadow, theme }) => (shadow ? "inset 0 -0.2em 0 " + theme.colors.shadow : "none")};
   font-size: ${({ size }) => size || "1em"};
-  padding: ${({ padding }) => padding || "0.75em 1.5em"};
+  padding: ${({ pad }) => pad || "0.75em 1.5em"};
   display: inline-flex;
   justify-content: center;
   align-items: center;
